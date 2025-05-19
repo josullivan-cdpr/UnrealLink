@@ -19,8 +19,12 @@ public class RD : ModuleRules
 #endif
 
 #if UE_4_22_OR_LATER
+#if UE_5_6_OR_LATER
+		CppStandard = CppStandardVersion.EngineDefault;
+#else
 		CppStandard = CppStandardVersion.Cpp17;
-#endif
+#endif // UE_5_6_OR_LATER
+#endif // UE_4_22_OR_LATER
 
 #if UE_4_22_OR_LATER
 		PCHUsage = PCHUsageMode.NoPCHs;
@@ -29,7 +33,11 @@ public class RD : ModuleRules
 #endif
 
 #if UE_4_24_OR_LATER
+#if UE_5_6_OR_LATER
+		CppCompileWarningSettings.ShadowVariableWarningLevel = WarningLevel.Off;
+#else
 		ShadowVariableWarningLevel = WarningLevel.Off;
+#endif
 		bUseUnity = false;
 #else
 		bEnableShadowVariableWarnings = false;
